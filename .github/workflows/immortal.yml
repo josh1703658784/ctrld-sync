@@ -25,5 +25,7 @@ jobs:
         run: |
           git add alive
           git commit -m "Changed file to keep workflows alive"
+          git config --global user.email "immortal.bot@example.com"
+          git config --global user.name "Immortal Robot"
           git push
 
