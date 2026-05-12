@@ -1,0 +1,28 @@
+name: Immortal
+
+on:
+  # First of month at 03:00 UTC
+  schedule:
+    - cron: "0 3 1 * *"
+  # Manual trigger
+  workflow_dispatch:
+
+jobs:
+  immortal:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          ref: 'immortal'
+
+      - name: Change alive file
+        run: echo "$( date +%s )" > alive
+
+      - name: Push changes
+        run: 
+          git add alive
+          git commit -m "Changed file to keep workflows alive"
+          git push
+
