@@ -22,7 +22,7 @@ jobs:
         run: echo "$( date +%s )" > alive
 
       - name: Push changes
-        run: 
+        run: |
           git add alive
           git commit -m "Changed file to keep workflows alive"
           git push
